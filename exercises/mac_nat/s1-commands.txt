@@ -1,0 +1,7 @@
+table_set_default ethernet_exact drop
+table_add ethernet_exact mac_nat 00:00:00:00:01:01 ff:ff:ff:ff:ff:ff => 00:00:00:00:10:10 4
+table_add ethernet_exact mac_nat 00:00:00:00:01:02 ff:ff:ff:ff:ff:ff => 00:00:00:00:20:20 4
+table_add ethernet_exact mac_nat 00:00:00:00:01:01 00:00:00:00:01:04 => 00:00:00:00:10:10 4
+table_add ethernet_exact mac_nat 00:00:00:00:01:02 00:00:00:00:01:04 => 00:00:00:00:20:20 4
+table_add ethernet_exact mac_restore 00:00:00:00:01:04 00:00:00:00:10:10 => 00:00:00:00:01:01 1
+table_add ethernet_exact mac_restore 00:00:00:00:01:04 00:00:00:00:20:20 => 00:00:00:00:01:02 2

@@ -1,0 +1,11 @@
+table_set_default associate_table NoAction
+table_set_default ipv4_lpm NoAction
+table_add ipv4_lpm ipv4_forward 10.0.1.1/32 2 => 00:00:00:00:01:01 1 0
+table_add ipv4_lpm ipv4_forward 10.0.1.2/32 1 => 00:00:00:00:01:02 2 0
+table_add ipv4_lpm ipv4_forward 10.0.1.1/32 3 => 00:00:00:00:01:01 1 1
+table_add ipv4_lpm ipv4_forward 10.0.1.2/32 3 => 00:00:00:00:01:02 2 1
+table_add ipv4_lpm ipv4_forward 10.0.2.0/24 1 => 00:00:02:02:02:02 3 1
+table_add ipv4_lpm ipv4_forward 10.0.2.0/24 2 => 00:00:02:02:02:02 3 1
+table_add associate_table set_flag 00:00:00:00:01:01 10.0.1.1/32 =>  
+table_add associate_table set_flag 00:00:00:00:01:02 10.0.1.2/32 =>  
+table_add associate_table set_flag 00:00:02:02:02:02 10.0.2.0/24 =>  
